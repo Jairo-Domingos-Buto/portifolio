@@ -1,61 +1,77 @@
-# Welcome to your OnSpace project
+# Portfólio — Jairo Domingos Buto
 
-## How can I edit this code?
+Portfólio pessoal desenvolvido com React + TypeScript + Vite. Apresenta projetos, stack técnico, processo de trabalho e contactos.
 
-There are several ways of editing your application.
+## Stack
 
-**Use OnSpace**
+- **React 18** + **TypeScript**
+- **Vite** — bundler e dev server
+- **Tailwind CSS** — estilização
+- **shadcn/ui** — componentes de UI (Radix UI)
+- **Lucide React** — ícones
 
-Simply visit the [OnSpace Project]() and start prompting.
+## Estrutura do projeto
 
-Changes made via OnSpace will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in OnSpace.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```text
+src/
+├── data/
+│   └── Config.ts          # Fonte única de dados — edita aqui
+├── components/
+│   ├── layout/
+│   │   ├── Header.tsx
+│   │   └── Footer.tsx
+│   ├── sections/
+│   │   ├── Hero.tsx
+│   │   ├── About.tsx
+│   │   ├── Skills.tsx
+│   │   ├── Projects.tsx
+│   │   ├── Process.tsx
+│   │   ├── WhoINeedToSolve.tsx
+│   │   └── Contact.tsx
+│   └── ui/                # Componentes shadcn/ui
+├── hooks/
+│   ├── useIntersectionObserver.ts
+│   └── useTheme.ts
+└── pages/
+    └── Index.tsx
 ```
 
-**Edit a file directly in GitHub**
+## Como editar o conteúdo
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Todo o conteúdo do portfólio está centralizado em `src/data/Config.ts`. Para alterar qualquer dado, edita **apenas esse ficheiro** — as mudanças propagam automaticamente para todos os componentes.
 
-**Use GitHub Codespaces**
+```ts
+// Exemplo: mudar o nome ou disponibilidade
+export const profile = {
+  name: 'Jairo Domingos Buto',
+  availableForWork: true,
+  ...
+};
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+// Exemplo: adicionar um projeto
+export const projects = {
+  items: [
+    { title: 'Novo Projeto', ... },
+  ],
+};
+```
 
-## What technologies are used for this project?
+## Comandos
 
-This project is built with:
+```bash
+# Instalar dependências
+npm install
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+# Servidor de desenvolvimento
+npm run dev
 
-## How can I deploy this project?
+# Build de produção
+npm run build
 
-Simply open [OnSpace]() and click on Share -> Publish.
+# Preview do build
+npm run preview
+```
+
+## Licença
+
+Todos os direitos reservados © Jairo Domingos Buto.

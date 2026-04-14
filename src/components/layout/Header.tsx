@@ -1,6 +1,6 @@
-import { Mail, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { profile, navLinks } from '@/data/Config';
 
 export function Header() {
   return (
@@ -9,20 +9,20 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <a href="#" className="text-lg font-semibold text-foreground">
-              JDB
+              {profile.initials}
             </a>
           </div>
-          
+
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#projetos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Projetos
-            </a>
-            <a href="#processo" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Processo
-            </a>
-            <a href="#sobre" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Sobre
-            </a>
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
             <ThemeToggle />
             <a href="#contato">
               <Button size="sm">Falar comigo</Button>
@@ -31,8 +31,7 @@ export function Header() {
 
           <div className="flex md:hidden items-center gap-2">
             <ThemeToggle />
-            {/*<a href="https://wa.me/244943680984?text=Olá%20Vi%20seu%20portifólio%20e%20quero%20falar%20contigo">*/}
-            <a href='#contato'>
+            <a href="#contato">
               <Button size="sm">Contato</Button>
             </a>
           </div>

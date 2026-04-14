@@ -1,6 +1,6 @@
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { profile, hero } from "@/data/Config";
+import { profile, social, hero } from "@/data/Config";
 
 export function Hero() {
   return (
@@ -14,35 +14,33 @@ export function Hero() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-              Fullstack em evolução constante.
+              {hero.headline}
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 text-balance">
-              4 anos desenvolvendo soluções web e agora mobile com Laravel,
-              React e tecnologias modernas. Especializado em transformar
-              requisitos complexos em produtos funcionais.
+              {hero.description}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <a href="#projetos">
+              <a href={hero.ctaPrimary.href}>
                 <Button size="lg" className="w-full sm:w-auto">
-                  Ver projetos
+                  {hero.ctaPrimary.label}
                 </Button>
               </a>
-              <a href="#contato">
+              <a href={hero.ctaSecondary.href}>
                 <Button
                   size="lg"
                   variant="outline"
                   className="w-full sm:w-auto"
                 >
-                  Falar comigo
+                  {hero.ctaSecondary.label}
                 </Button>
               </a>
             </div>
 
             <div className="flex items-center gap-4">
               <a
-                href="https://github.com/Jairo-Domingos-Buto"
+                href={social.github.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
@@ -50,7 +48,7 @@ export function Hero() {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="https://www.linkedin.com/in/jairo-domingos-buto-0a7288315/"
+                href={social.linkedin.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
@@ -58,7 +56,7 @@ export function Hero() {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="https://mail.google.com/mail/u/0/#inbox?compose=PNRMKdqPTDswZNBZWskhFcDBPJTXXPZXRfBjNWCKZcdkLLfGRlFpFJxDdzMMVsHLVVzkSwSBpjQGlDq"
+                href={social.emailComposeUrl}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Mail className="w-5 h-5" />
@@ -76,8 +74,8 @@ export function Hero() {
               <div className="relative">
                 <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-background shadow-2xl group-hover:scale-105 transition-transform duration-500">
                   <img
-                    src="https://avatars.githubusercontent.com/u/101554996?v=4"
-                    alt="Jairo Domingos Buto"
+                    src={profile.avatar}
+                    alt={profile.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
