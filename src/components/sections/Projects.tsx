@@ -28,7 +28,15 @@ export function Projects() {
             >
               <div className="grid md:grid-cols-5 gap-6">
                 <div className="md:col-span-2">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover min-h-[300px]" />
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover min-h-[300px]"
+                    loading="lazy"
+                    decoding="async"
+                    width={960}
+                    height={500}
+                  />
                 </div>
 
                 <div className="md:col-span-3 p-6">

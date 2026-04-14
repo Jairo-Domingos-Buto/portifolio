@@ -12,7 +12,7 @@ export const profile = {
   yearsOfExperience: 4,
   availableForWork: true,
   availabilityLabel: "Disponível para novos projetos",
-  avatar: new URL("../assets/fotoperfil.png", import.meta.url).href,
+  avatar: new URL("../assets/fotoperfil.webp", import.meta.url).href,
   responseTime: "Respondo em até 24 horas",
 };
 
@@ -139,7 +139,7 @@ export const projects = {
         "Projeto Privado",
       ],
       image:
-        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=960&h=500&fit=crop&fm=webp&q=75",
     },
     {
       title: "Miss Cary App",
@@ -156,7 +156,7 @@ export const projects = {
         "Foco inicial nas funcionalidades essenciais para entrega rápida (reservas, catálogo e comunicação), deixando integrações mais complexas para fases futuras.",
       tech: ["React Native", "Firebase", "Disponivel na Play Store"],
       image:
-        "https://play-lh.googleusercontent.com/t6LgOnoo43RzToStY_zdSwUrDsLeGJknXL1a38FDcWeCG2GW2-7OYI1-4m_H_W8SbbMBWG__c6fQSE2sN-AtaQ=w240-h480",
+        "https://play-lh.googleusercontent.com/t6LgOnoo43RzToStY_zdSwUrDsLeGJknXL1a38FDcWeCG2GW2-7OYI1-4m_H_W8SbbMBWG__c6fQSE2sN-AtaQ=w960-h500-rw",
     },
     {
       title: "Sistema de Gestão de Residentes e Visitas - Para Condomínios",
@@ -180,7 +180,7 @@ export const projects = {
         "Sanctum",
         "Projeto Privado",
       ],
-      image: new URL('../assets/screenshot.png', import.meta.url).href,
+      image: new URL('../assets/screenshot.webp', import.meta.url).href,
     },
   ],
 };

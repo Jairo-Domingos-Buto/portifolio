@@ -80,6 +80,10 @@ export function Hero() {
                     src={profile.avatar}
                     alt={profile.name}
                     className="w-full h-full object-cover"
+                    width={640}
+                    height={640}
+                    fetchPriority="high"
+                    decoding="async"
                   />
                 </div>
 
