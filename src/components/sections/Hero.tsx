@@ -3,8 +3,11 @@ import { Button } from "@/components/ui/button";
 import { profile, social, hero } from "@/data/Config";
 
 export function Hero() {
+
+
+
   return (
-    <section className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen flex items-center justify-center pt-16 lg:pt-16 max-[400px]:mt-[54px] px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center animate-fade-in">
           {/* Content */}
@@ -87,7 +90,9 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-slow">
+        <div
+          className={`absolute bottom-4 max-[400px]:hidden left-1/2 -translate-x-1/2 animate-bounce-slow`}
+        >
           <ArrowDown className="w-6 h-6 text-muted-foreground" />
         </div>
       </div>

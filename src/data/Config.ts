@@ -47,6 +47,7 @@ export const hero = {
     "4 anos desenvolvendo soluções web e agora mobile com Laravel, React e tecnologias modernas. Especializado em transformar requisitos complexos em produtos funcionais.",
   ctaPrimary: { label: "Ver projetos", href: "#projetos" },
   ctaSecondary: { label: "Falar comigo", href: "#contato" },
+
 };
 
 // --- SOBRE MIM ---
@@ -55,7 +56,7 @@ export const about = {
   sectionSubtitle: "Mais do que código: como eu trabalho e o que me move",
   bio: [
     "Sou <strong>Jairo Domingos Buto</strong>, desenvolvedor há quase 4 anos. Comecei com web (HTML, CSS, JavaScript, PHP/Laravel) e este ano mergulhei em mobile com React Native.",
-    "Tenho vários projetos em carteira — a maioria profissional e sob NDA, mas os públicos estão no meu GitHub. Minha trajetória me ensinou que <strong>bom código é aquele que resolve problemas reais</strong>, não o mais complexo.",
+    "Tenho vários projetos em carteira — a maioria profissional, mas os públicos estão no meu GitHub. Minha trajetória me ensinou que <strong>bom código é aquele que resolve problemas reais</strong>, não o mais complexo.",
     "O que me move: criar sistemas que funcionam, escalam e facilitam a vida de quem usa. Estou sempre aprendendo, mas nunca sacrifico qualidade por quantidade de tecnologias no currículo.",
   ],
   principles: [
@@ -163,7 +164,7 @@ export const projects = {
         "Sistema completo para gerenciamento de acessos, segurança e comunicação em condomínios residenciais",
       context:
         "Condomínios enfrentam problemas com controle manual de visitantes, falta de comunicação entre moradores e administração, e dificuldade em monitorar entradas/saídas em tempo real.",
-      role: "Desenvolvedor fullstack responsável pelo sistema completo (Laravel + React). Implementação de módulos de administradores, moradores, visitantes e seguranças.",
+      role: "Desenvolvedor fullstack responsável pelo sistema completo (Laravel). Implementação de módulos de administradores, moradores, visitantes e seguranças.",
       solution:
         "Sistema web com autenticação segura (Laravel Sanctum). Módulo de moradores para cadastrar visitantes e gerar acessos de autorização. Módulo de segurança para validar acessos. Painel administrativo para gestão de usuários e relatórios. Notificações em tempo real.",
       result:
@@ -179,7 +180,7 @@ export const projects = {
         "Sanctum",
         "Projeto Privado",
       ],
-      image: "/screenshot",
+      image: new URL('../assets/screenshot.png', import.meta.url).href,
     },
   ],
 };
