@@ -18,7 +18,7 @@ export const profile = {
 
 // --- CONTACTOS E REDES SOCIAIS ---
 export const social = {
-  email: "contato@jairodomingos.dev",
+  email: "jairobuto03@gmail.com",
   emailComposeUrl:
     "https://mail.google.com/mail/u/0/#inbox?compose=PNRMKdqPTDswZNBZWskhFcDBPJTXXPZXRfBjNWCKZcdkLLfGRlFpFJxDdzMMVsHLVVzkSwSBpjQGlDq",
   github: {
@@ -179,7 +179,7 @@ export const projects = {
         "Sanctum",
         "Projeto Privado",
       ],
-      image: "/Captura de ecrã de 2026-04-11 21-56-53",
+      image: "/screenshot",
     },
   ],
 };
