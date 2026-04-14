@@ -12,7 +12,7 @@ export const profile = {
   yearsOfExperience: 4,
   availableForWork: true,
   availabilityLabel: "Disponível para novos projetos",
-  avatar: "https://avatars.githubusercontent.com/u/101554996?v=4",
+  avatar: new URL("../assets/fotoperfil.png", import.meta.url).href,
   responseTime: "Respondo em até 24 horas",
 };
 
