@@ -1,102 +1,71 @@
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { profile, social, hero } from "@/data/Config";
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+import { GradientWaves } from "@/components/backgrounds/GradientWaves";
+import { profile, social, hero, stats } from "@/data/Config";
 
 export function Hero() {
-
-
-
   return (
-    <section className="min-h-screen flex items-center justify-center pt-16 lg:pt-16 max-[400px]:mt-[54px] px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto max-w-6xl">
-        <div className="grid lg:grid-cols-2 gap-12 items-center animate-fade-in">
-          {/* Content */}
-          <div className="order-2 lg:order-1">
-            <div className="inline-block px-3 py-1 mb-6 text-xs font-medium bg-secondary text-secondary-foreground rounded-full">
-              {hero.disponibilityLabel}
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
+    <section className="relative isolate overflow-hidden bg-background px-4 pb-16 pt-28 sm:px-6 lg:min-h-[calc(100vh-1rem)] lg:px-8 lg:pb-20 lg:pt-32">
+      <GradientWaves className="opacity-[0.12] mix-blend-multiply" />
+      <div className="relative z-10 mx-auto max-w-6xl">
+        <div className="grid items-end gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+          <div className="max-w-3xl">
+            <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
+              {profile.role} · {profile.location}
+            </p>
+            <h1 className="max-w-3xl text-[clamp(3.25rem,8vw,7.5rem)] font-semibold leading-[0.92] tracking-[-0.07em] text-foreground">
               {hero.headline}
             </h1>
-
-            <p className="text-lg sm:text-xl text-muted-foreground mb-8 text-balance">
-              {hero.description}
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <a href={hero.ctaPrimary.href}>
-                <Button size="lg" className="w-full sm:w-auto">
-                  {hero.ctaPrimary.label}
-                </Button>
-              </a>
-              <a href={hero.ctaSecondary.href}>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="w-full sm:w-auto"
-                >
-                  {hero.ctaSecondary.label}
-                </Button>
+            <div className="mt-10 flex max-w-xl flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+              <p className="max-w-md text-base leading-7 text-muted-foreground">
+                {hero.description}
+              </p>
+              <a href={hero.ctaPrimary.href} className="inline-flex shrink-0 items-center gap-2 border-b border-foreground pb-2 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary">
+                {hero.ctaPrimary.label}
+                <ArrowUpRight size={16} aria-hidden="true" />
               </a>
             </div>
-
-            <div className="flex items-center gap-4">
+            <div className="mt-12 flex items-center gap-5 border-t border-border pt-5">
               <a
                 href={social.github.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground transition-colors hover:text-foreground"
               >
-                <Github className="w-5 h-5" />
+                <Github size={17} />
               </a>
               <a
                 href={social.linkedin.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground transition-colors hover:text-foreground"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin size={17} />
               </a>
               <a
                 href={social.emailComposeUrl}
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground transition-colors hover:text-foreground"
               >
-                <Mail className="w-5 h-5" />
+                <Mail size={17} />
               </a>
             </div>
           </div>
 
-          {/* Profile Photo */}
-          <div className="order-1 lg:order-2 flex justify-center">
-            <div className="relative group">
-              {/* Glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/50 rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
-
-              {/* Photo container */}
-              <div className="relative">
-                <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-background shadow-2xl group-hover:scale-105 transition-transform duration-500">
-                  <img
-                    src={profile.avatar}
-                    alt={profile.name}
-                    className="w-full h-full object-cover"
-                    width={640}
-                    height={640}
-                    decoding="async"
-                  />
-                </div>
-
-                {/* Decorative ring */}
-                <div className="absolute -inset-2 border-2 border-primary/20 rounded-full animate-pulse"></div>
+          <div className="relative lg:pb-10">
+            <div className="relative ml-auto aspect-[0.82] w-full max-w-md overflow-hidden bg-secondary">
+              <img src={profile.avatar} alt={profile.name} className="h-full w-full object-cover grayscale" width={640} height={780} decoding="async" />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/55 to-transparent p-6 pt-24 text-background">
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em]">Based in {profile.location}</p>
               </div>
             </div>
+            <div className="mt-5 grid grid-cols-3 gap-4 border-t border-border pt-4">
+              {stats.slice(0, 3).map((stat) => (
+                <div key={stat.label}>
+                  <p className="font-mono text-xl text-foreground">{stat.value}</p>
+                  <p className="mt-1 text-[11px] leading-4 text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div
-          className={`absolute bottom-4 max-[400px]:hidden left-1/2 -translate-x-1/2 animate-bounce-slow`}
-        >
-          <ArrowDown className="w-6 h-6 text-muted-foreground" />
         </div>
       </div>
     </section>
