@@ -1,3 +1,4 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { Hero } from './components/sections/Hero';
@@ -7,22 +8,36 @@ import { Process } from './components/sections/Process';
 import { Skills } from './components/sections/Skills';
 import { About } from './components/sections/About';
 import { Contact } from './components/sections/Contact';
+import ProjectsPage from './pages/Projects';
+import ProjectDetailsPage from './pages/ProjectDetails';
 
-function App() {
+function HomePage() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
+    <main>
         <Hero />
         <WhoINeedToSolve />
-        <Projects />
+        <Projects compact />
         <Process />
         <Skills />
         <About />
         <Contact />
-      </main>
-      <Footer />
-    </div>
+    </main>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="min-h-screen">
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/projects/:slug" element={<ProjectDetailsPage />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

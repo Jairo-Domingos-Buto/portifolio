@@ -1,4 +1,4 @@
-import { profile, navLinks } from '@/data/Config';
+import { profile, navLinks } from "@/data/Config";
 
 export function Footer() {
   return (
@@ -6,7 +6,8 @@ export function Footer() {
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} {profile.name}. Todos os direitos reservados.
+            © {new Date().getFullYear()} {profile.name}. Todos os direitos
+            reservados.
           </div>
 
           <div className="flex items-center gap-6">

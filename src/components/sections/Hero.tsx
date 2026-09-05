@@ -82,7 +82,6 @@ export function Hero() {
                     className="w-full h-full object-cover"
                     width={640}
                     height={640}
-                    fetchPriority="high"
                     decoding="async"
                   />
                 </div>

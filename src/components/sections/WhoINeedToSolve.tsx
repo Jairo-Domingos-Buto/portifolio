@@ -1,9 +1,9 @@
-import { Building2, Rocket, Pencil } from 'lucide-react';
+import { Building2, Rocket, Pencil, BriefcaseBusiness } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { audiences } from '@/data/Config';
 
-const audienceIcons = [Building2, Rocket, Pencil];
+const audienceIcons = [Building2, Rocket, Pencil, BriefcaseBusiness];
 
 export function WhoINeedToSolve() {
   const { targetRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });

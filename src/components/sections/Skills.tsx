@@ -6,7 +6,7 @@ export function Skills() {
   const { targetRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
 
   return (
-    <section ref={targetRef} className="py-24 px-4 sm:px-6 lg:px-8">
+    <section id="stack" ref={targetRef} className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
         <div className={`text-center mb-16 transition-all duration-700 ${isIntersecting ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">

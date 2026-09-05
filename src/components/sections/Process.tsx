@@ -1,9 +1,9 @@
-import { Search, Lightbulb, Code, TestTube, Rocket } from 'lucide-react';
+import { Search, Lightbulb, Code, TestTube, Rocket, ShieldCheck, RefreshCw } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { process } from '@/data/Config';
 
-const stepIcons = [Search, Lightbulb, Code, TestTube, Rocket];
+const stepIcons = [Search, Lightbulb, Code, TestTube, Rocket, ShieldCheck, RefreshCw];
 
 export function Process() {
   const { targetRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });

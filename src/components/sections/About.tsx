@@ -1,9 +1,9 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { Target, Users, Zap } from 'lucide-react';
+import { Target, Users, Zap, Scale } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { profile, about } from '@/data/Config';
 
-const principleIcons = [Target, Users, Zap];
+const principleIcons = [Target, Users, Zap, Scale];
 
 export function About() {
   const { targetRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });

@@ -1,11 +1,22 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import { projects } from "@/data/Config";
+import { SpotlightCard } from "@/components/projects/SpotlightCard";
+import { projectCategories, projects } from "@/data/Config";
 
-export function Projects() {
+interface ProjectsProps {
+  compact?: boolean;
+}
+
+export function Projects({ compact = false }: ProjectsProps) {
   const { targetRef, isIntersecting } = useIntersectionObserver({ threshold: 0.1 });
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const visibleProjects = projects.items.filter(
+    (project) => activeCategory === "all" || project.taxonomy.categories.includes(activeCategory),
+  );
 
   return (
     <section id="projetos" ref={targetRef} className="py-24 px-4 sm:px-6 lg:px-8">
@@ -19,19 +30,38 @@ export function Projects() {
           </p>
         </div>
 
-        <div className="space-y-12">
-          {projects.items.map((project, index) => (
-            <Card
-              key={index}
-              className={`overflow-hidden border-2 hover:border-primary transition-all duration-700 hover:scale-[1.02] ${isIntersecting ? "animate-slide-in opacity-100" : "opacity-0 -translate-x-10"}`}
-              style={{ animationDelay: `${index * 200}ms` }}
+        <div className="flex flex-wrap justify-center gap-2 mb-10" role="group" aria-label="Filtrar projetos">
+          {projectCategories.map((category) => (
+            <button
+              key={category.id}
+              type="button"
+              onClick={() => setActiveCategory(category.id)}
+              className={`rounded-full border px-4 py-2 text-sm transition-colors ${
+                activeCategory === category.id
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border text-muted-foreground hover:border-primary hover:text-foreground"
+              }`}
+              aria-pressed={activeCategory === category.id}
             >
-              <div className="grid md:grid-cols-5 gap-6">
-                <div className="md:col-span-2">
+              {category.label}
+            </button>
+          ))}
+        </div>
+
+        <div className={compact ? "grid gap-5 sm:grid-cols-2 lg:grid-cols-3" : "space-y-12"}>
+          {visibleProjects.map((project, index) => (
+            <SpotlightCard
+              key={project.slug}
+              delay={index * 0.06}
+              className={compact ? "h-full" : ""}
+            >
+              <Link to={`/projects/${project.slug}`} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset">
+                <div className={compact ? "flex h-full flex-col" : "grid gap-6 md:grid-cols-5"}>
+                <div className={compact ? "aspect-[16/10]" : "md:col-span-2"}>
                   <img
-                    src={project.image}
+                    src={project.media?.cover ?? undefined}
                     alt={project.title}
-                    className="w-full h-full object-cover min-h-[300px]"
+                    className={compact ? "h-full w-full object-cover" : "h-full min-h-[300px] w-full object-cover"}
                     loading="lazy"
                     decoding="async"
                     width={960}
@@ -39,49 +69,53 @@ export function Projects() {
                   />
                 </div>
 
-                <div className="md:col-span-3 p-6">
-                  <CardHeader className="p-0 mb-4">
-                    <CardTitle className="text-2xl mb-2">{project.title}</CardTitle>
-                    <CardDescription className="text-base">{project.description}</CardDescription>
-                  </CardHeader>
+                <div className={compact ? "flex flex-1 flex-col p-5" : "p-6 md:col-span-3"}>
+                  <div className="mb-4">
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <Badge variant="outline">{project.summary.status}</Badge>
+                      <span className="text-xs text-muted-foreground">{project.taxonomy.year}</span>
+                    </div>
+                    <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
+                    <p className={compact ? "line-clamp-3 text-sm text-muted-foreground" : "text-base text-muted-foreground"}>{project.summary.description}</p>
+                  </div>
 
-                  <CardContent className="p-0 space-y-4">
+                  <div className={compact ? "mt-auto space-y-4" : "space-y-4"}>
                     <div>
                       <h4 className="text-sm font-semibold text-foreground mb-1">Contexto</h4>
-                      <p className="text-sm text-muted-foreground">{project.context}</p>
+                      {!compact && <p className="text-sm text-muted-foreground">{project.caseStudy.context}</p>}
                     </div>
 
-                    <div>
-                      <h4 className="text-sm font-semibold text-foreground mb-1">Meu papel</h4>
-                      <p className="text-sm text-muted-foreground">{project.role}</p>
-                    </div>
-
-                    <div>
+                    {!compact && <div>
                       <h4 className="text-sm font-semibold text-foreground mb-1">Solução</h4>
-                      <p className="text-sm text-muted-foreground">{project.solution}</p>
-                    </div>
+                      <p className="text-sm text-muted-foreground">{project.caseStudy.approach}</p>
+                    </div>}
 
-                    <div className="bg-secondary/50 p-4 rounded-lg">
+                    {!compact && <div className="bg-secondary/50 p-4 rounded-lg">
                       <h4 className="text-sm font-semibold text-foreground mb-1">Resultado</h4>
-                      <p className="text-sm text-foreground font-medium">{project.result}</p>
-                    </div>
+                      <p className="text-sm text-foreground font-medium">{project.caseStudy.outcomes[0]}</p>
+                    </div>}
 
-                    <div>
+                    {!compact && <div>
                       <h4 className="text-sm font-semibold text-muted-foreground mb-1">Trade-off</h4>
-                      <p className="text-sm text-muted-foreground italic">{project.tradeoff}</p>
-                    </div>
+                      <p className="text-sm text-muted-foreground italic">{project.caseStudy.tradeoffs}</p>
+                    </div>}
 
                     <div className="flex flex-wrap gap-2 pt-2">
-                      {project.tech.map((tech, i) => (
-                        <Badge key={i} variant="secondary">
+                      {project.technologies.map((tech) => (
+                        <Badge key={tech} variant="secondary">
                           {tech}
                         </Badge>
                       ))}
                     </div>
-                  </CardContent>
+
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:underline">
+                      Ver case study <ArrowUpRight size={15} aria-hidden="true" />
+                    </span>
+                  </div>
                 </div>
               </div>
-            </Card>
+              </Link>
+            </SpotlightCard>
           ))}
         </div>
       </div>
