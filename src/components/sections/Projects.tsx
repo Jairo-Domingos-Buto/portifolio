@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { SpotlightCard } from "@/components/projects/SpotlightCard";
 import { projectCategories, projects } from "@/data/Config";
@@ -14,39 +15,45 @@ export function Projects({ compact = false }: ProjectsProps) {
   const { targetRef, isIntersecting } = useIntersectionObserver({ threshold: 0.1 });
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const visibleProjects = projects.items.filter(
-    (project) => activeCategory === "all" || project.taxonomy.categories.includes(activeCategory),
-  );
+  const visibleProjects = compact
+    ? projects.items.filter((project) => project.featured).slice(0, 5)
+    : projects.items.filter(
+        (project) => activeCategory === "all" || project.taxonomy.categories.includes(activeCategory),
+      );
 
   return (
     <section id="projetos" ref={targetRef} className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
         <div
-          className={`text-center mb-16 transition-all duration-700 ${isIntersecting ? "animate-slide-up opacity-100" : "opacity-0 translate-y-10"}`}
+          className={`text-center mb-10 transition-all duration-700 ${isIntersecting ? "animate-slide-in opacity-100" : "-opacity-0 translate-y-0"}`}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{projects.sectionTitle}</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            {compact ? projects.featuredTitle : projects.sectionTitle}
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             {projects.sectionSubtitle}
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-10" role="group" aria-label="Filtrar projetos">
-          {projectCategories.map((category) => (
-            <button
-              key={category.id}
-              type="button"
-              onClick={() => setActiveCategory(category.id)}
-              className={`rounded-full border px-4 py-2 text-sm transition-colors ${
-                activeCategory === category.id
-                  ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border text-muted-foreground hover:border-primary hover:text-foreground"
-              }`}
-              aria-pressed={activeCategory === category.id}
-            >
-              {category.label}
-            </button>
-          ))}
-        </div>
+        {!compact && (
+          <div className="flex flex-wrap justify-center gap-2 mb-10" role="group" aria-label="Filtrar projetos">
+            {projectCategories.map((category) => (
+              <button
+                key={category.id}
+                type="button"
+                onClick={() => setActiveCategory(category.id)}
+                className={`rounded-full border px-4 py-2 text-sm transition-colors ${
+                  activeCategory === category.id
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-border text-muted-foreground hover:border-primary hover:text-foreground"
+                }`}
+                aria-pressed={activeCategory === category.id}
+              >
+                {category.label}
+              </button>
+            ))}
+          </div>
+        )}
 
         <div className={compact ? "grid gap-5 sm:grid-cols-2 lg:grid-cols-3" : "space-y-12"}>
           {visibleProjects.map((project, index) => (
@@ -118,6 +125,16 @@ export function Projects({ compact = false }: ProjectsProps) {
             </SpotlightCard>
           ))}
         </div>
+
+        {compact && (
+          <div className="mt-10 flex justify-center">
+            <Button asChild variant="outline">
+              <Link to="/projects">
+                {projects.viewAllLabel} <ArrowUpRight size={16} aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

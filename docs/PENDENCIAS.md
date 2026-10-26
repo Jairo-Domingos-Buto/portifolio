@@ -13,7 +13,7 @@ Estados: TODO, EM PROGRESSO, IMPLEMENTADO, VERIFICADO, CONCLUÍDO, BLOQUEADO, PO
 | PORT-005 | Substituir fallback JCash e preencher galerias | TODO | normal | P2 | Imagens públicas reais disponíveis e apresentação validada |
 | PORT-006 | Capturar Ocuioso e Jakeil Transfer | BLOQUEADO | normal | P3 | DNS público voltou a resolver e capturas públicas obtidas; confirmar dependência antes de retomar |
 | PORT-007 | Definir lockfile canónico npm ou Bun | TODO | normal | P3 | Decisão documentada; preservar ambos até decidir, sem inferir escolha definitiva do uso histórico de npm ci |
-| PORT-008 | Conteúdo editorial, cards e navegação | IMPLEMENTADO | normal | P2 | Histórico E-H03/E-H04; verificar a versão alvo e critérios relevantes antes de concluir |
+| PORT-008 | Conteúdo editorial, cards e navegação | IMPLEMENTADO | normal | P2 | Home mostra os 5 primeiros destaques e CTA para `/projects`; cada detalhe apresenta contexto, problema, objetivo, papel, solução, implementação, base técnica, decisões, aprendizagens, resultado, próximos passos, trade-off, stack e CTA contextual. Falta validação visual em browser para promover a VERIFICADO. |
 | PORT-009 | Hero editorial minimalista e GradientWaves | IMPLEMENTADO | normal | P2 | Histórico E-H05; completar PORT-002 |
 | PORT-010 | Capturas públicas MeSafa Shop, Colo, PADEL4UM, MUDS.ao e PADEL4ALL | IMPLEMENTADO | baixa | P3 | Histórico E-H04; validar activos/apresentação quando alterados |
 
@@ -21,5 +21,7 @@ Estados: TODO, EM PROGRESSO, IMPLEMENTADO, VERIFICADO, CONCLUÍDO, BLOQUEADO, PO
 
 - O schema editorial separa descoberta de case studies. Superfícies futuras devem consumi-lo directamente, sem reintroduzir aliases.
 - A correcção da home que renderizava ícones `undefined`, cards compactos e âncoras da navbar integra PORT-008. A hero foi revista para composição minimalista, retrato rectangular, CTA único e reduced motion (PORT-009).
+- Em 2026-10-26, a home passou a limitar-se a cinco projectos marcados como `featured`; a página `/projects` mantém a listagem e filtros completos. As páginas individuais consomem directamente o `caseStudy` e `summary.role` de `Config.ts`, sem aliases editoriais. A validação visual continua pendente por indisponibilidade do browser integrado nesta sessão.
+- Em 2026-10-26, os detalhes passaram a expor todos os campos editoriais existentes numa narrativa de negócio → solução → resultado → conversa. `approach` descreve o objetivo e `problem` serve de sinal contextual no CTA; não foram adicionados campos redundantes nem alegações não verificadas.
 - Instalação npm, build e browser marcados como feitos na wiki antiga foram migrados para evidência histórica; não são tarefas activas nem verificação de hoje.
 - Não publicar credenciais, bloqueios internos ou métricas não comprovadas no conteúdo público.

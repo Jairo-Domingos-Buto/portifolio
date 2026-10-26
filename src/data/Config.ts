@@ -50,7 +50,7 @@ export const navLinks = [
 export const hero = {
   disponibilityLabel: "Disponível para novos projetos",
   eyebrow: "Fullstack Developer · Angola",
-  headline: "Construo produtos digitais que resolvem problemas reais.",
+  headline: "Construo soluções que resolvem problemas reais.",
   description:
     "Desenvolvedor Fullstack focado em transformar requisitos complexos em sistemas funcionais, escaláveis e fáceis de manter — do backend e banco de dados ao frontend, mobile e infraestrutura.",
   highlights: [
@@ -355,10 +355,15 @@ export const projectCategories = [
 const projectImage = new URL("../assets/screenshot.webp", import.meta.url).href;
 const projectScreenshots = {
   colo: new URL("../assets/projects/colo-home.png", import.meta.url).href,
-  mesafaShop: new URL("../assets/projects/mesafa-shop-home.png", import.meta.url).href,
+  mesafaShop: new URL(
+    "../assets/projects/mesafa-shop-home.png",
+    import.meta.url,
+  ).href,
   muds: new URL("../assets/projects/muds-ao-home.png", import.meta.url).href,
-  padel4all: new URL("../assets/projects/padel4all-home.png", import.meta.url).href,
-  padel4um: new URL("../assets/projects/padel4um-home.png", import.meta.url).href,
+  padel4all: new URL("../assets/projects/padel4all-home.png", import.meta.url)
+    .href,
+  padel4um: new URL("../assets/projects/padel4um-home.png", import.meta.url)
+    .href,
 };
 
 type ProjectDefinition = {
@@ -430,18 +435,44 @@ export const projects = {
         description: "SaaS multi-tenant de faturação para empresas angolanas.",
         role: "Full Stack Developer",
       },
-      taxonomy: { categories: ["saas", "web", "business"], platforms: ["web"], year: "2026" },
+      taxonomy: {
+        categories: ["saas", "web", "business"],
+        platforms: ["web"],
+        year: "2026",
+      },
       caseStudy: {
-        context: "Empresas precisam gerir faturação, documentos fiscais, clientes, produtos e obrigações de forma centralizada.",
-        problem: "Processos de faturação dispersos dificultam a rastreabilidade e a preparação dos dados fiscais.",
-        approach: "Plataforma multi-tenant com emissão de documentos fiscais, recibos, notas de crédito, relatórios e exportação SAF-T (AO).",
-        architecture: ["Laravel API", "Next.js App Router", "MySQL", "Redis e filas"],
-        implementation: ["Hash SHA-256 e assinatura RSA", "Numeração por estabelecimento", "Planos, módulos e permissões"],
-        decisions: ["Separar tenants por contexto de pedido", "Priorizar conformidade e rastreabilidade documental"],
-        tradeoffs: "Prioridade em conformidade fiscal, rastreabilidade e consistência dos documentos antes de funcionalidades secundárias.",
-        outcomes: ["Base funcional para centralizar a operação de faturação de empresas angolanas."],
-        lessons: ["Sistemas fiscais exigem estados, sequências e auditoria tratados como regras de domínio."],
-        nextSteps: ["Deploy produtivo e integração com serviços externos reais, quando credenciais e especificações estiverem disponíveis."],
+        context:
+          "Empresas precisam gerir faturação, documentos fiscais, clientes, produtos e obrigações de forma centralizada.",
+        problem:
+          "Processos de faturação dispersos dificultam a rastreabilidade e a preparação dos dados fiscais.",
+        approach:
+          "Plataforma multi-tenant com emissão de documentos fiscais, recibos, notas de crédito, relatórios e exportação SAF-T (AO).",
+        architecture: [
+          "Laravel API",
+          "Next.js App Router",
+          "MySQL",
+          "Redis e filas",
+        ],
+        implementation: [
+          "Hash SHA-256 e assinatura RSA",
+          "Numeração por estabelecimento",
+          "Planos, módulos e permissões",
+        ],
+        decisions: [
+          "Separar tenants por contexto de pedido",
+          "Priorizar conformidade e rastreabilidade documental",
+        ],
+        tradeoffs:
+          "Prioridade em conformidade fiscal, rastreabilidade e consistência dos documentos antes de funcionalidades secundárias.",
+        outcomes: [
+          "Base funcional para centralizar a operação de faturação de empresas angolanas.",
+        ],
+        lessons: [
+          "Sistemas fiscais exigem estados, sequências e auditoria tratados como regras de domínio.",
+        ],
+        nextSteps: [
+          "Deploy produtivo e integração com serviços externos reais, quando credenciais e especificações estiverem disponíveis.",
+        ],
       },
       technologies: [
         "Laravel",
@@ -463,21 +494,60 @@ export const projects = {
       shortTitle: "Ocuioso",
       featured: true,
       visibility: "private",
-      summary: { label: "Marketplace / Delivery", status: "Em produção", description: "Plataforma de encomenda de comida e delivery para Luanda.", role: "Full Stack Developer" },
-      taxonomy: { categories: ["marketplace", "web", "business"], platforms: ["web"], year: "2026" },
+      summary: {
+        label: "Marketplace / Delivery",
+        status: "Em produção",
+        description:
+          "Plataforma de encomenda de comida e delivery para Luanda.",
+        role: "Full Stack Developer",
+      },
+      taxonomy: {
+        categories: ["marketplace", "web", "business"],
+        platforms: ["web"],
+        year: "2026",
+      },
       caseStudy: {
-        context: "Consumidores, estabelecimentos e motoboys precisam operar o mesmo ciclo de encomenda com estados diferentes.",
-        problem: "A operação de delivery exige autorização por perfil, rastreio, pagamentos e transições consistentes.",
-        approach: "Plataforma com áreas para consumidor, proprietário, motoboy e administração, incluindo rastreio e gestão de encomendas.",
-        architecture: ["Laravel API", "Next.js", "Sanctum SPA", "TanStack Query"],
-        implementation: ["Pool partilhado de motoboys", "Mapa GPS e rastreio", "Cupões, avaliações e chat"],
-        decisions: ["Luanda como mercado inicial", "WhatsApp em vez de chat interno de suporte", "Pagamento manual sem gateway online"],
-        tradeoffs: "A operação local e o controlo dos estados foram priorizados antes da expansão geográfica.",
-        outcomes: ["Fluxos de consumidor, proprietário, administração e motoboy implementados e cobertos por testes."],
-        lessons: ["Estados de encomenda e entrega devem permanecer separados para não corromper o rastreio."],
+        context:
+          "Consumidores, estabelecimentos e motoboys precisam operar o mesmo ciclo de encomenda com estados diferentes.",
+        problem:
+          "A operação de delivery exige autorização por perfil, rastreio, pagamentos e transições consistentes.",
+        approach:
+          "Plataforma com áreas para consumidor, proprietário, motoboy e administração, incluindo rastreio e gestão de encomendas.",
+        architecture: [
+          "Laravel API",
+          "Next.js",
+          "Sanctum SPA",
+          "TanStack Query",
+        ],
+        implementation: [
+          "Pool partilhado de motoboys",
+          "Mapa GPS e rastreio",
+          "Cupões, avaliações e chat",
+        ],
+        decisions: [
+          "Luanda como mercado inicial",
+          "WhatsApp em vez de chat interno de suporte",
+          "Pagamento manual sem gateway online",
+        ],
+        tradeoffs:
+          "A operação local e o controlo dos estados foram priorizados antes da expansão geográfica.",
+        outcomes: [
+          "Fluxos de consumidor, proprietário, administração e motoboy implementados e cobertos por testes.",
+        ],
+        lessons: [
+          "Estados de encomenda e entrega devem permanecer separados para não corromper o rastreio.",
+        ],
         nextSteps: ["Evoluir a operação conforme o modelo comercial validado."],
       },
-      technologies: ["Laravel", "Next.js", "React", "TypeScript", "MySQL", "Sanctum", "Docker"],
+      technologies: [
+        "Laravel",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "MySQL",
+        "Sanctum",
+        "Docker",
+      ],
     }),
     createProject({
       slug: "mesafa-shop",
@@ -485,22 +555,67 @@ export const projects = {
       shortTitle: "MeSafa Shop",
       featured: true,
       visibility: "private",
-      summary: { label: "Marketplace multi-vendedor", status: "Candidato técnico", description: "Marketplace angolano com lojas, encomendas, entregas e backoffice operacional.", role: "Full Stack Developer" },
-      taxonomy: { categories: ["marketplace", "ecommerce", "saas", "web"], platforms: ["web"], year: "2026" },
-      caseStudy: {
-        context: "O produto combina subscrição para vendedores, compra para clientes, logística por zonas e administração.",
-        problem: "Vendedores, clientes, entregadores e equipa administrativa precisam de regras e visibilidade diferentes no mesmo ciclo de compra.",
-        approach: "Marketplace com lojas, KYC, pagamentos manuais, entregas por estado, notificações persistentes e painéis por perfil.",
-        architecture: ["Laravel 13 API", "Next.js 16 App Router", "Sanctum", "MySQL e Docker"],
-        implementation: ["KYC privado", "Courier com código de entrega", "CMS e relatórios administrativos", "Notificações persistentes"],
-        decisions: ["Operação inicial focada em comércio físico local", "Dados de pagamento administráveis", "Separação entre prova de pagamento e conclusão da encomenda"],
-        tradeoffs: "A operação verificável e os fluxos de confiança foram priorizados antes de funcionalidades comerciais mais amplas.",
-        outcomes: ["Candidato técnico com os principais fluxos de vendedor, cliente, entregador e administração implementados."],
-        lessons: ["A logística precisa de uma máquina de estados própria e de evidência em cada transição."],
-        nextSteps: ["Publicação controlada e validação com operação real autorizada."],
+      summary: {
+        label: "Marketplace multi-vendedor",
+        status: "Candidato técnico",
+        description:
+          "Marketplace angolano com lojas, encomendas, entregas e backoffice operacional.",
+        role: "Full Stack Developer",
       },
-      technologies: ["Laravel", "Next.js", "React", "TypeScript", "MySQL", "Docker", "Caddy"],
-      media: { cover: projectScreenshots.mesafaShop, gallery: [projectScreenshots.mesafaShop] },
+      taxonomy: {
+        categories: ["marketplace", "ecommerce", "saas", "web"],
+        platforms: ["web"],
+        year: "2026",
+      },
+      caseStudy: {
+        context:
+          "O produto combina subscrição para vendedores, compra para clientes, logística por zonas e administração.",
+        problem:
+          "Vendedores, clientes, entregadores e equipa administrativa precisam de regras e visibilidade diferentes no mesmo ciclo de compra.",
+        approach:
+          "Marketplace com lojas, KYC, pagamentos manuais, entregas por estado, notificações persistentes e painéis por perfil.",
+        architecture: [
+          "Laravel 13 API",
+          "Next.js 16 App Router",
+          "Sanctum",
+          "MySQL e Docker",
+        ],
+        implementation: [
+          "KYC privado",
+          "Courier com código de entrega",
+          "CMS e relatórios administrativos",
+          "Notificações persistentes",
+        ],
+        decisions: [
+          "Operação inicial focada em comércio físico local",
+          "Dados de pagamento administráveis",
+          "Separação entre prova de pagamento e conclusão da encomenda",
+        ],
+        tradeoffs:
+          "A operação verificável e os fluxos de confiança foram priorizados antes de funcionalidades comerciais mais amplas.",
+        outcomes: [
+          "Candidato técnico com os principais fluxos de vendedor, cliente, entregador e administração implementados.",
+        ],
+        lessons: [
+          "A logística precisa de uma máquina de estados própria e de evidência em cada transição.",
+        ],
+        nextSteps: [
+          "Publicação controlada e validação com operação real autorizada.",
+        ],
+      },
+      technologies: [
+        "Laravel",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "MySQL",
+        "Docker",
+        "Caddy",
+      ],
+      media: {
+        cover: projectScreenshots.mesafaShop,
+        gallery: [projectScreenshots.mesafaShop],
+      },
     }),
     createProject({
       slug: "mesafa-ao",
@@ -508,21 +623,62 @@ export const projects = {
       shortTitle: "MeSafa.ao",
       featured: true,
       visibility: "private",
-      summary: { label: "SaaS de gestão de redes sociais", status: "Em desenvolvimento", description: "Plataforma para PMEs angolanas gerirem redes sociais, campanhas e métricas.", role: "Full Stack Developer" },
-      taxonomy: { categories: ["saas", "web", "business"], platforms: ["web"], year: "2026" },
-      caseStudy: {
-        context: "PMEs precisam planear conteúdo, gerir canais, acompanhar métricas e organizar campanhas num só espaço.",
-        problem: "A gestão distribuída por várias plataformas torna publicação, análise e colaboração difíceis de acompanhar.",
-        approach: "SaaS com publicação agendada, geração assistida de conteúdo, relatórios, anúncios, chat e área administrativa.",
-        architecture: ["Laravel 13 API", "Next.js 16", "MySQL", "Redis e Reverb"],
-        implementation: ["Integrações OAuth sociais", "TanStack Query e Zustand", "Planos e permissões por organização"],
-        decisions: ["Migrar o frontend para Next.js App Router", "Manter MySQL para relações fortes e migrations versionadas"],
-        tradeoffs: "O backend e as regras de negócio foram estabilizados antes de fechar todas as áreas do frontend.",
-        outcomes: ["Backend completo e frontend público/dashboards evoluídos por fases verificáveis."],
-        lessons: ["Produtos SaaS precisam alinhar plano, limites, permissões e experiência desde o modelo de dados."],
-        nextSteps: ["Concluir pagamentos e validar os fluxos privados em browser com backend local."],
+      summary: {
+        label: "SaaS de gestão de redes sociais",
+        status: "Em desenvolvimento",
+        description:
+          "Plataforma para PMEs angolanas gerirem redes sociais, campanhas e métricas.",
+        role: "Full Stack Developer",
       },
-      technologies: ["Laravel", "Next.js", "React", "TypeScript", "MySQL", "Redis", "Reverb", "OpenAI"],
+      taxonomy: {
+        categories: ["saas", "web", "business"],
+        platforms: ["web"],
+        year: "2026",
+      },
+      caseStudy: {
+        context:
+          "PMEs precisam planear conteúdo, gerir canais, acompanhar métricas e organizar campanhas num só espaço.",
+        problem:
+          "A gestão distribuída por várias plataformas torna publicação, análise e colaboração difíceis de acompanhar.",
+        approach:
+          "SaaS com publicação agendada, geração assistida de conteúdo, relatórios, anúncios, chat e área administrativa.",
+        architecture: [
+          "Laravel 13 API",
+          "Next.js 16",
+          "MySQL",
+          "Redis e Reverb",
+        ],
+        implementation: [
+          "Integrações OAuth sociais",
+          "TanStack Query e Zustand",
+          "Planos e permissões por organização",
+        ],
+        decisions: [
+          "Migrar o frontend para Next.js App Router",
+          "Manter MySQL para relações fortes e migrations versionadas",
+        ],
+        tradeoffs:
+          "O backend e as regras de negócio foram estabilizados antes de fechar todas as áreas do frontend.",
+        outcomes: [
+          "Backend completo e frontend público/dashboards evoluídos por fases verificáveis.",
+        ],
+        lessons: [
+          "Produtos SaaS precisam alinhar plano, limites, permissões e experiência desde o modelo de dados.",
+        ],
+        nextSteps: [
+          "Concluir pagamentos e validar os fluxos privados em browser com backend local.",
+        ],
+      },
+      technologies: [
+        "Laravel",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "MySQL",
+        "Redis",
+        "Reverb",
+        "OpenAI",
+      ],
     }),
     createProject({
       slug: "jakeil-transfer",
@@ -530,21 +686,62 @@ export const projects = {
       shortTitle: "Jakeil Transfer",
       featured: true,
       visibility: "private",
-      summary: { label: "Plataforma de transporte privado", status: "Web em produção", description: "Sistema de reservas e operação de transporte privado em Luanda.", role: "Full Stack Developer" },
-      taxonomy: { categories: ["transport", "web", "mobile", "business"], platforms: ["web", "mobile"], year: "2026" },
-      caseStudy: {
-        context: "Clientes, motoristas e administração precisam acompanhar reservas, despacho, viagens e frota.",
-        problem: "O serviço exige uma operação coordenada entre reserva, atribuição, viagem, pagamentos e comunicação.",
-        approach: "Backend Laravel, frontend Next.js e aplicação Expo com áreas dedicadas para cliente, motorista e administração.",
-        architecture: ["Laravel 13", "Next.js 16", "React Native / Expo", "React Query"],
-        implementation: ["Motor de estados de reserva", "Despacho e gestão de frota", "Tracking e áreas mobile por perfil"],
-        decisions: ["Web-first para a operação", "PostgreSQL/PostGIS como alvo produtivo", "Clean Architecture parcial no mobile"],
-        tradeoffs: "A cobertura dos fluxos por perfil foi priorizada antes de fechar todas as integrações externas.",
-        outcomes: ["Web operacional e aplicação mobile avançada com autenticação, reservas, viagens e administração."],
-        lessons: ["A mesma regra de domínio deve ser partilhada entre web e mobile, mesmo com interfaces diferentes."],
-        nextSteps: ["Completar navegação mobile, responsividade e integração de mapas."],
+      summary: {
+        label: "Plataforma de transporte privado",
+        status: "Web em produção",
+        description:
+          "Sistema de reservas e operação de transporte privado em Luanda.",
+        role: "Full Stack Developer",
       },
-      technologies: ["Laravel", "Next.js", "React Native", "Expo", "TypeScript", "PostgreSQL", "Redis"],
+      taxonomy: {
+        categories: ["transport", "web", "mobile", "business"],
+        platforms: ["web", "mobile"],
+        year: "2026",
+      },
+      caseStudy: {
+        context:
+          "Clientes, motoristas e administração precisam acompanhar reservas, despacho, viagens e frota.",
+        problem:
+          "O serviço exige uma operação coordenada entre reserva, atribuição, viagem, pagamentos e comunicação.",
+        approach:
+          "Backend Laravel, frontend Next.js e aplicação Expo com áreas dedicadas para cliente, motorista e administração.",
+        architecture: [
+          "Laravel 13",
+          "Next.js 16",
+          "React Native / Expo",
+          "React Query",
+        ],
+        implementation: [
+          "Motor de estados de reserva",
+          "Despacho e gestão de frota",
+          "Tracking e áreas mobile por perfil",
+        ],
+        decisions: [
+          "Web-first para a operação",
+          "PostgreSQL/PostGIS como alvo produtivo",
+          "Clean Architecture parcial no mobile",
+        ],
+        tradeoffs:
+          "A cobertura dos fluxos por perfil foi priorizada antes de fechar todas as integrações externas.",
+        outcomes: [
+          "Web operacional e aplicação mobile avançada com autenticação, reservas, viagens e administração.",
+        ],
+        lessons: [
+          "A mesma regra de domínio deve ser partilhada entre web e mobile, mesmo com interfaces diferentes.",
+        ],
+        nextSteps: [
+          "Completar navegação mobile, responsividade e integração de mapas.",
+        ],
+      },
+      technologies: [
+        "Laravel",
+        "Next.js",
+        "React Native",
+        "Expo",
+        "TypeScript",
+        "PostgreSQL",
+        "Redis",
+      ],
     }),
     createProject({
       slug: "miss-cary",
@@ -552,12 +749,46 @@ export const projects = {
       shortTitle: "Miss Cary",
       featured: true,
       visibility: "public",
-      summary: { label: "Mobile / Plataforma de serviços", status: "Em produção", description: "Plataforma mobile e web para contratação de turismo, consultoria, educação e alojamento.", role: "Full Stack Developer" },
-      taxonomy: { categories: ["mobile", "web"], platforms: ["mobile", "web"], year: "2026" },
-      links: { live: null, store: "https://play.google.com/store/apps/details?id=com.misscary.app", github: null },
-      caseStudy: { context: "A plataforma precisava centralizar serviços e facilitar reservas, comunicação e gestão de clientes.", problem: "Vários serviços e públicos precisavam de uma experiência unificada.", approach: "Catálogo de serviços, reservas, comunicação, notificações e integração com backend.", architecture: ["React Native", "Firebase", "Node.js"], implementation: ["Catálogo", "Reservas", "Notificações"], decisions: ["Priorizar funcionalidades essenciais"], tradeoffs: "Entrega incremental para validar o produto antes das integrações mais complexas.", outcomes: ["Centralização dos serviços numa única plataforma."], lessons: ["Um primeiro fluxo coerente vale mais do que múltiplas funcionalidades isoladas."], nextSteps: ["Evoluir integrações e cobertura funcional." ] },
+      summary: {
+        label: "Mobile / Plataforma de serviços",
+        status: "Em produção",
+        description:
+          "Plataforma mobile e web para contratação de turismo, consultoria, educação e alojamento.",
+        role: "Full Stack Developer",
+      },
+      taxonomy: {
+        categories: ["mobile", "web"],
+        platforms: ["mobile", "web"],
+        year: "2026",
+      },
+      links: {
+        live: null,
+        store: "https://play.google.com/store/apps/details?id=com.misscary.app",
+        github: null,
+      },
+      caseStudy: {
+        context:
+          "A plataforma precisava centralizar serviços e facilitar reservas, comunicação e gestão de clientes.",
+        problem:
+          "Vários serviços e públicos precisavam de uma experiência unificada.",
+        approach:
+          "Catálogo de serviços, reservas, comunicação, notificações e integração com backend.",
+        architecture: ["React Native", "Firebase", "Node.js"],
+        implementation: ["Catálogo", "Reservas", "Notificações"],
+        decisions: ["Priorizar funcionalidades essenciais"],
+        tradeoffs:
+          "Entrega incremental para validar o produto antes das integrações mais complexas.",
+        outcomes: ["Centralização dos serviços numa única plataforma."],
+        lessons: [
+          "Um primeiro fluxo coerente vale mais do que múltiplas funcionalidades isoladas.",
+        ],
+        nextSteps: ["Evoluir integrações e cobertura funcional."],
+      },
       technologies: ["React Native", "Firebase", "Node.js"],
-      media: { cover: "https://play-lh.googleusercontent.com/t6LgOnoo43RzToStY_zdSwUrDsLeGJknXL1a38FDcWeCG2GW2-7OYI1-4m_H_W8SbbMBWG__c6fQSE2sN-AtaQ=w960-h500-rw" },
+      media: {
+        cover:
+          "https://play-lh.googleusercontent.com/t6LgOnoo43RzToStY_zdSwUrDsLeGJknXL1a38FDcWeCG2GW2-7OYI1-4m_H_W8SbbMBWG__c6fQSE2sN-AtaQ=w960-h500-rw",
+      },
     }),
     createProject({
       slug: "condominio-girassol",
@@ -565,10 +796,52 @@ export const projects = {
       shortTitle: "Condomínio Girassol",
       featured: true,
       visibility: "academic",
-      summary: { label: "Sistema de gestão", status: "Concluído", description: "Sistema de gestão de residentes, visitantes e acessos para condomínio residencial.", role: "Full Stack Developer" },
-      taxonomy: { categories: ["web", "business", "academic"], platforms: ["web"], year: "2025" },
-      caseStudy: { context: "O projeto surgiu para resolver o controlo manual de visitantes e entradas.", problem: "A administração precisava de histórico e autorização de acessos centralizados.", approach: "Autenticação, gestão de moradores, visitantes e seguranças, autorizações, relatórios e notificações.", architecture: ["Laravel", "React", "MySQL", "Sanctum"], implementation: ["Perfis de morador, segurança e administrador", "Histórico de visitas"], decisions: ["Arquitetura modular"], tradeoffs: "Módulos separados permitiram evolução sem reescrever o núcleo.", outcomes: ["Digitalização do controlo de acessos e histórico centralizado de visitas."], lessons: ["Fluxos presenciais precisam de estados claros e registos auditáveis."], nextSteps: ["Evoluir relatórios e integrações conforme o contexto de operação." ] },
-      technologies: ["Laravel", "React", "Tailwind CSS", "MySQL", "Jetstream", "Livewire", "Sanctum"],
+      summary: {
+        label: "Sistema de gestão",
+        status: "Concluído",
+        description:
+          "Sistema de gestão de residentes, visitantes e acessos para condomínio residencial.",
+        role: "Full Stack Developer",
+      },
+      taxonomy: {
+        categories: ["web", "business", "academic"],
+        platforms: ["web"],
+        year: "2025",
+      },
+      caseStudy: {
+        context:
+          "O projeto surgiu para resolver o controlo manual de visitantes e entradas.",
+        problem:
+          "A administração precisava de histórico e autorização de acessos centralizados.",
+        approach:
+          "Autenticação, gestão de moradores, visitantes e seguranças, autorizações, relatórios e notificações.",
+        architecture: ["Laravel", "React", "MySQL", "Sanctum"],
+        implementation: [
+          "Perfis de morador, segurança e administrador",
+          "Histórico de visitas",
+        ],
+        decisions: ["Arquitetura modular"],
+        tradeoffs:
+          "Módulos separados permitiram evolução sem reescrever o núcleo.",
+        outcomes: [
+          "Digitalização do controlo de acessos e histórico centralizado de visitas.",
+        ],
+        lessons: [
+          "Fluxos presenciais precisam de estados claros e registos auditáveis.",
+        ],
+        nextSteps: [
+          "Evoluir relatórios e integrações conforme o contexto de operação.",
+        ],
+      },
+      technologies: [
+        "Laravel",
+        "React",
+        "Tailwind CSS",
+        "MySQL",
+        "Jetstream",
+        "Livewire",
+        "Sanctum",
+      ],
       media: { cover: projectImage },
     }),
     createProject({
@@ -576,19 +849,96 @@ export const projects = {
       title: "Nahora",
       shortTitle: "Nahora",
       featured: false,
-      summary: { label: "Marketplace de serviços domésticos", status: "Em desenvolvimento", description: "Marketplace mobile para ligar clientes a técnicos de serviços domésticos em Angola.", role: "Full Stack Developer" },
-      taxonomy: { categories: ["marketplace", "mobile"], platforms: ["mobile", "web"], year: "2026" },
-      caseStudy: { context: "Clientes precisam contratar técnicos para reparações, limpeza e manutenção com preço e execução rastreáveis.", problem: "A contratação informal dificulta confiança, acompanhamento e pagamento.", approach: "Aplicação com clientes, técnicos e administração, pedidos, ofertas, tracking e pagamentos preparados.", architecture: ["React Native / Expo", "Firebase", "React Query", "Redux Toolkit"], implementation: ["Clean Architecture parcial", "Pedidos e tracking", "Áreas por role"], decisions: ["Firebase como backend inicial", "API própria como evolução futura"], tradeoffs: "A primeira fase privilegia velocidade e validação do marketplace antes da API própria.", outcomes: ["Fluxos principais de cliente, técnico e administração estruturados."], lessons: ["Um marketplace precisa coordenar confiança, proximidade e estado operacional."], nextSteps: ["Resolver autenticação por telefone, push notifications e pagamentos." ] },
-      technologies: ["React Native", "Expo", "TypeScript", "Firebase", "React Query", "Redux Toolkit"],
+      summary: {
+        label: "Marketplace de serviços domésticos",
+        status: "Em desenvolvimento",
+        description:
+          "Marketplace mobile para ligar clientes a técnicos de serviços domésticos em Angola.",
+        role: "Full Stack Developer",
+      },
+      taxonomy: {
+        categories: ["marketplace", "mobile"],
+        platforms: ["mobile", "web"],
+        year: "2026",
+      },
+      caseStudy: {
+        context:
+          "Clientes precisam contratar técnicos para reparações, limpeza e manutenção com preço e execução rastreáveis.",
+        problem:
+          "A contratação informal dificulta confiança, acompanhamento e pagamento.",
+        approach:
+          "Aplicação com clientes, técnicos e administração, pedidos, ofertas, tracking e pagamentos preparados.",
+        architecture: [
+          "React Native / Expo",
+          "Firebase",
+          "React Query",
+          "Redux Toolkit",
+        ],
+        implementation: [
+          "Clean Architecture parcial",
+          "Pedidos e tracking",
+          "Áreas por role",
+        ],
+        decisions: [
+          "Firebase como backend inicial",
+          "API própria como evolução futura",
+        ],
+        tradeoffs:
+          "A primeira fase privilegia velocidade e validação do marketplace antes da API própria.",
+        outcomes: [
+          "Fluxos principais de cliente, técnico e administração estruturados.",
+        ],
+        lessons: [
+          "Um marketplace precisa coordenar confiança, proximidade e estado operacional.",
+        ],
+        nextSteps: [
+          "Resolver autenticação por telefone, push notifications e pagamentos.",
+        ],
+      },
+      technologies: [
+        "React Native",
+        "Expo",
+        "TypeScript",
+        "Firebase",
+        "React Query",
+        "Redux Toolkit",
+      ],
     }),
     createProject({
       slug: "superprof-superaluno",
       title: "SuperProf / SuperAluno",
       shortTitle: "SuperProf / SuperAluno",
       featured: false,
-      summary: { label: "EdTech / SaaS", status: "Conceito", description: "Conceito de plataforma educacional para ligar professores e alunos.", role: "Full Stack Developer" },
-      taxonomy: { categories: ["saas", "web"], platforms: ["web"], year: "2026" },
-      caseStudy: { context: "A proposta procura centralizar funcionalidades educacionais e facilitar a relação entre alunos e professores.", problem: "A experiência educacional pode ficar dispersa entre perfis, conteúdos e comunicação.", approach: "Arquitetura modular preparada para diferentes perfis e evolução gradual.", architecture: ["React", "Laravel", "TypeScript", "PostgreSQL"], implementation: ["Perfis de utilizador", "Base modular de produto"], decisions: ["Crescer por módulos"], tradeoffs: "A estrutura modular evita concentrar toda a lógica numa única aplicação.", outcomes: ["Base para evolução de um produto educacional."], lessons: ["A definição precoce dos perfis reduz conflitos entre fluxos."], nextSteps: ["Validar escopo e fluxos com utilizadores reais." ] },
+      summary: {
+        label: "EdTech / SaaS",
+        status: "Conceito",
+        description:
+          "Conceito de plataforma educacional para ligar professores e alunos.",
+        role: "Full Stack Developer",
+      },
+      taxonomy: {
+        categories: ["saas", "web"],
+        platforms: ["web"],
+        year: "2026",
+      },
+      caseStudy: {
+        context:
+          "A proposta procura centralizar funcionalidades educacionais e facilitar a relação entre alunos e professores.",
+        problem:
+          "A experiência educacional pode ficar dispersa entre perfis, conteúdos e comunicação.",
+        approach:
+          "Arquitetura modular preparada para diferentes perfis e evolução gradual.",
+        architecture: ["React", "Laravel", "TypeScript", "PostgreSQL"],
+        implementation: ["Perfis de utilizador", "Base modular de produto"],
+        decisions: ["Crescer por módulos"],
+        tradeoffs:
+          "A estrutura modular evita concentrar toda a lógica numa única aplicação.",
+        outcomes: ["Base para evolução de um produto educacional."],
+        lessons: [
+          "A definição precoce dos perfis reduz conflitos entre fluxos.",
+        ],
+        nextSteps: ["Validar escopo e fluxos com utilizadores reais."],
+      },
       technologies: ["React", "Laravel", "TypeScript", "PostgreSQL"],
     }),
     createProject({
@@ -596,21 +946,39 @@ export const projects = {
       title: "PharmaFinder Angola",
       shortTitle: "PharmaFinder",
       featured: false,
-      summary: { label: "Web / Localização", status: "Conceito", description: "Aplicação web para descoberta e localização de farmácias em Angola.", role: "Frontend Developer" },
-      taxonomy: { categories: ["web", "health"], platforms: ["web"], year: "2026" },
-      caseStudy: { context: "A experiência procura facilitar a descoberta de farmácias e informação relevante.", problem: "Encontrar estabelecimentos e localização pode exigir pesquisa dispersa.", approach: "SPA responsiva com pesquisa e localização de estabelecimentos.", architecture: ["React", "Vite", "TypeScript", "PostGIS"], implementation: ["Pesquisa", "Localização", "Interface responsiva"], decisions: ["Priorizar simplicidade"], tradeoffs: "A experiência de pesquisa foi priorizada antes de integrações mais amplas.", outcomes: ["Conceito de experiência centralizada para descoberta de farmácias."], lessons: ["Produtos de localização precisam de dados confiáveis antes de mais funcionalidades."], nextSteps: ["Validar fonte de dados e cobertura geográfica." ] },
+      summary: {
+        label: "Web / Localização",
+        status: "Conceito",
+        description:
+          "Aplicação web para descoberta e localização de farmácias em Angola.",
+        role: "Frontend Developer",
+      },
+      taxonomy: {
+        categories: ["web", "health"],
+        platforms: ["web"],
+        year: "2026",
+      },
+      caseStudy: {
+        context:
+          "A experiência procura facilitar a descoberta de farmácias e informação relevante.",
+        problem:
+          "Encontrar estabelecimentos e localização pode exigir pesquisa dispersa.",
+        approach:
+          "SPA responsiva com pesquisa e localização de estabelecimentos.",
+        architecture: ["React", "Vite", "TypeScript", "PostGIS"],
+        implementation: ["Pesquisa", "Localização", "Interface responsiva"],
+        decisions: ["Priorizar simplicidade"],
+        tradeoffs:
+          "A experiência de pesquisa foi priorizada antes de integrações mais amplas.",
+        outcomes: [
+          "Conceito de experiência centralizada para descoberta de farmácias.",
+        ],
+        lessons: [
+          "Produtos de localização precisam de dados confiáveis antes de mais funcionalidades.",
+        ],
+        nextSteps: ["Validar fonte de dados e cobertura geográfica."],
+      },
       technologies: ["React", "Vite", "TypeScript", "PostGIS"],
-    }),
-    createProject({
-      slug: "ejpr",
-      title: "EJPR",
-      shortTitle: "EJPR",
-      featured: false,
-      visibility: "private",
-      summary: { label: "Site, portal e backoffice", status: "Em desenvolvimento", description: "Plataforma digital para venda, aluguer, manutenção e reparação de equipamentos de impressão.", role: "Full Stack Developer" },
-      taxonomy: { categories: ["web", "business"], platforms: ["web"], year: "2026" },
-      caseStudy: { context: "A EJPR precisava juntar presença comercial, suporte ao cliente e operação interna.", problem: "Pedidos, contratos, equipamentos, tickets e conteúdos estavam separados por processos.", approach: "Produto Next.js com site público, portal do cliente, backoffice, CMS e assistente virtual.", architecture: ["Next.js 15", "React 19", "Prisma", "SQLite"], implementation: ["Tickets com SLA", "Contratos e parque de equipamentos", "CMS declarativo", "Assistente por intenções"], decisions: ["Server Actions para escrita", "Sessões JWT revogáveis", "Validação zod na entrada"], tradeoffs: "SQLite foi usado no desenvolvimento, com migração para PostgreSQL prevista para produção.", outcomes: ["Plataforma estruturada em três áreas com fluxos de suporte e gestão."], lessons: ["O backoffice deve reflectir os SLAs e não apenas armazenar registos."], nextSteps: ["Validar localmente, fechar documentação e preparar produção." ] },
-      technologies: ["Next.js", "React", "TypeScript", "Prisma", "SQLite", "Tailwind CSS"],
     }),
     createProject({
       slug: "colo",
@@ -618,11 +986,48 @@ export const projects = {
       shortTitle: "Colo",
       featured: false,
       visibility: "private",
-      summary: { label: "E-commerce / Operação alimentar", status: "Em produção", description: "Plataforma de pedidos semanais de refeições saudáveis adaptadas ao ciclo menstrual.", role: "Full Stack Developer" },
-      taxonomy: { categories: ["ecommerce", "web", "business"], platforms: ["web"], year: "2026" },
-      caseStudy: { context: "A Colo vende um pacote semanal de refeições com vagas limitadas e comunicação por WhatsApp.", problem: "A operação precisava gerir semanas, menus, vagas, pedidos especiais e pagamentos sem editar código.", approach: "Site com pedido persistido, transição de semanas, dashboard de gestão e personalização por fase do ciclo.", architecture: ["React", "Node.js", "Prisma"], implementation: ["Semanas e vagas", "Pedidos normais e especiais", "Dashboard de gestão"], decisions: ["Pacote semanal como unidade comercial", "WhatsApp como canal de confirmação"], tradeoffs: "A experiência emocional da marca foi mantida sem esconder as regras operacionais do pedido.", outcomes: ["Operação de semanas, pedidos e gestão centralizada."], lessons: ["Um produto de nicho precisa traduzir a proposta emocional em regras simples de compra."], nextSteps: ["Expandir testes mínimos e backups da base de dados." ] },
+      summary: {
+        label: "E-commerce / Operação alimentar",
+        status: "Em produção",
+        description:
+          "Plataforma de pedidos semanais de refeições saudáveis adaptadas ao ciclo menstrual.",
+        role: "Full Stack Developer",
+      },
+      taxonomy: {
+        categories: ["ecommerce", "web", "business"],
+        platforms: ["web"],
+        year: "2026",
+      },
+      caseStudy: {
+        context:
+          "A Colo vende um pacote semanal de refeições com vagas limitadas e comunicação por WhatsApp.",
+        problem:
+          "A operação precisava gerir semanas, menus, vagas, pedidos especiais e pagamentos sem editar código.",
+        approach:
+          "Site com pedido persistido, transição de semanas, dashboard de gestão e personalização por fase do ciclo.",
+        architecture: ["React", "Node.js", "Prisma"],
+        implementation: [
+          "Semanas e vagas",
+          "Pedidos normais e especiais",
+          "Dashboard de gestão",
+        ],
+        decisions: [
+          "Pacote semanal como unidade comercial",
+          "WhatsApp como canal de confirmação",
+        ],
+        tradeoffs:
+          "A experiência emocional da marca foi mantida sem esconder as regras operacionais do pedido.",
+        outcomes: ["Operação de semanas, pedidos e gestão centralizada."],
+        lessons: [
+          "Um produto de nicho precisa traduzir a proposta emocional em regras simples de compra.",
+        ],
+        nextSteps: ["Expandir testes mínimos e backups da base de dados."],
+      },
       technologies: ["React", "Node.js", "Prisma", "SQLite"],
-      media: { cover: projectScreenshots.colo, gallery: [projectScreenshots.colo] },
+      media: {
+        cover: projectScreenshots.colo,
+        gallery: [projectScreenshots.colo],
+      },
     }),
     createProject({
       slug: "muds-ao",
@@ -630,11 +1035,65 @@ export const projects = {
       shortTitle: "MUDS.ao",
       featured: false,
       visibility: "private",
-      summary: { label: "Web app / E-commerce", status: "Em produção", description: "Plataforma de hospedagem com e-commerce, área de cliente e administração.", role: "Full Stack Developer" },
-      taxonomy: { categories: ["ecommerce", "saas", "web", "business"], platforms: ["web"], year: "2026" },
-      caseStudy: { context: "A MUDS precisava apresentar serviços de hospedagem, vender planos e gerir clientes num produto próprio.", problem: "Marketing, checkout, pagamentos e operação administrativa precisavam de uma base integrada.", approach: "Web app SSR com site, checkout, AppyPay, conta de cliente, CMS e painel administrativo.", architecture: ["TanStack Start", "React 19", "Supabase", "Cloudflare Workers"], implementation: ["Checkout de hospedagem", "Webhook de pagamento", "CMS e área de cliente"], decisions: ["Feature-first", "Webhook reconfirma o estado na API oficial", "Server functions autenticadas"], tradeoffs: "A migração de código legado para features continua gradual para preservar o MVP.", outcomes: ["Plataforma em produção com venda de serviços e gestão administrativa."], lessons: ["Pagamentos assíncronos exigem reconfirmação e estados idempotentes."], nextSteps: ["Concluir migração das features restantes para a arquitectura feature-first." ] },
-      technologies: ["TanStack Start", "React", "Supabase", "Tailwind CSS", "AppyPay", "Cloudflare Workers"],
-      media: { cover: projectScreenshots.muds, gallery: [projectScreenshots.muds] },
+      summary: {
+        label: "Web app / E-commerce",
+        status: "Em produção",
+        description:
+          "Plataforma de hospedagem com e-commerce, área de cliente e administração.",
+        role: "Full Stack Developer",
+      },
+      taxonomy: {
+        categories: ["ecommerce", "saas", "web", "business"],
+        platforms: ["web"],
+        year: "2026",
+      },
+      caseStudy: {
+        context:
+          "A MUDS precisava apresentar serviços de hospedagem, vender planos e gerir clientes num produto próprio.",
+        problem:
+          "Marketing, checkout, pagamentos e operação administrativa precisavam de uma base integrada.",
+        approach:
+          "Web app SSR com site, checkout, conta de cliente, CMS e painel administrativo.",
+        architecture: [
+          "TanStack Start",
+          "React 19",
+          "Supabase",
+          "Cloudflare Workers",
+        ],
+        implementation: [
+          "Checkout de hospedagem",
+          "Webhook de pagamento",
+          "CMS e área de cliente",
+        ],
+        decisions: [
+          "Feature-first",
+          "Webhook reconfirma o estado na API oficial",
+          "Server functions autenticadas",
+        ],
+        tradeoffs:
+          "A migração de código legado para features continua gradual para preservar o MVP.",
+        outcomes: [
+          "Plataforma em produção com venda de serviços e gestão administrativa.",
+        ],
+        lessons: [
+          "Pagamentos assíncronos exigem reconfirmação e estados idempotentes.",
+        ],
+        nextSteps: [
+          "Concluir migração das features restantes para a arquitectura feature-first.",
+        ],
+      },
+      technologies: [
+        "TanStack Start",
+        "React",
+        "Supabase",
+        "Tailwind CSS",
+        "AppyPay",
+        "Cloudflare Workers",
+      ],
+      media: {
+        cover: projectScreenshots.muds,
+        gallery: [projectScreenshots.muds],
+      },
     }),
     createProject({
       slug: "padel4um",
@@ -642,11 +1101,57 @@ export const projects = {
       shortTitle: "PADEL4UM",
       featured: false,
       visibility: "private",
-      summary: { label: "E-commerce / Clube desportivo", status: "Em produção", description: "Loja online e plataforma de operação de um clube de padel em Angola.", role: "Full Stack Developer" },
-      taxonomy: { categories: ["ecommerce", "web", "business"], platforms: ["web"], year: "2026" },
-      caseStudy: { context: "A operação combina catálogo de produtos, encomendas, reservas e gestão de aulas.", problem: "A loja precisa respeitar o ERP comercial enquanto oferece uma experiência digital própria.", approach: "Frontend Next.js integrado com Vendus, Supabase, email e áreas administrativas separadas.", architecture: ["Next.js", "TypeScript", "Supabase", "Vendus"], implementation: ["Catálogo sincronizado", "Pagamento manual", "Admin e conta de cliente"], decisions: ["Vendus como fonte fiscal", "Nunca emitir factura automaticamente no checkout"], tradeoffs: "Reservas e aulas foram mantidas como gestão interna enquanto pagamentos online ficam para evolução futura.", outcomes: ["Loja online e operação do clube disponíveis em produção."], lessons: ["Integrações fiscais precisam de uma fronteira clara entre catálogo, encomenda e emissão."], nextSteps: ["Evoluir reservas e integrações de pagamento conforme operação." ] },
-      technologies: ["Next.js", "TypeScript", "Supabase", "Vendus", "Docker", "nginx"],
-      media: { cover: projectScreenshots.padel4um, gallery: [projectScreenshots.padel4um] },
+      summary: {
+        label: "E-commerce / Clube desportivo",
+        status: "Em produção",
+        description:
+          "Loja online e plataforma de operação de um clube de padel em Angola.",
+        role: "Full Stack Developer",
+      },
+      taxonomy: {
+        categories: ["ecommerce", "web", "business"],
+        platforms: ["web"],
+        year: "2026",
+      },
+      caseStudy: {
+        context:
+          "A operação combina catálogo de produtos, encomendas, reservas e gestão de aulas.",
+        problem:
+          "A loja precisa respeitar o ERP comercial enquanto oferece uma experiência digital própria.",
+        approach:
+          "Frontend Next.js integrado com Vendus, Supabase, email e áreas administrativas separadas.",
+        architecture: ["Next.js", "TypeScript", "Supabase", "Vendus"],
+        implementation: [
+          "Catálogo sincronizado",
+          "Pagamento manual",
+          "Admin e conta de cliente",
+        ],
+        decisions: [
+          "Vendus como fonte fiscal",
+          "Nunca emitir factura automaticamente no checkout",
+        ],
+        tradeoffs:
+          "Reservas e aulas foram mantidas como gestão interna enquanto pagamentos online ficam para evolução futura.",
+        outcomes: ["Loja online e operação do clube disponíveis em produção."],
+        lessons: [
+          "Integrações fiscais precisam de uma fronteira clara entre catálogo, encomenda e emissão.",
+        ],
+        nextSteps: [
+          "Evoluir reservas e integrações de pagamento conforme operação.",
+        ],
+      },
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Supabase",
+        "Vendus",
+        "Docker",
+        "nginx",
+      ],
+      media: {
+        cover: projectScreenshots.padel4um,
+        gallery: [projectScreenshots.padel4um],
+      },
     }),
     createProject({
       slug: "psn",
@@ -654,10 +1159,59 @@ export const projects = {
       shortTitle: "PSN",
       featured: false,
       visibility: "private",
-      summary: { label: "Portal de saúde", status: "MVP em desenvolvimento", description: "Portal de saúde com marcações, ficha de saúde, agregado familiar, KYC e pagamentos.", role: "Full Stack Developer" },
-      taxonomy: { categories: ["health", "web", "business"], platforms: ["web"], year: "2026" },
-      caseStudy: { context: "O portal pretende ligar utentes a hospitais, clínicas e farmácias com serviços digitais.", problem: "Marcação, dados de saúde, identidade e pagamentos precisam de isolamento e segurança fortes.", approach: "MVP com autenticação segura, KYC, marcações e integração de pagamento preparada.", architecture: ["Next.js 16", "React 19", "Prisma", "PostgreSQL"], implementation: ["JWT revogável", "Argon2id", "Validação zod", "Webhooks HMAC"], decisions: ["Isolamento por utente", "Cookies httpOnly", "Storage externo como requisito de produção"], tradeoffs: "A segurança da aplicação foi priorizada, enquanto migrations, rate limiting e storage produtivo permanecem como gate.", outcomes: ["MVP funcional com base de segurança e 37 rotas verificadas."], lessons: ["Dados de saúde exigem separar a qualidade da aplicação das garantias da infraestrutura."], nextSteps: ["Fechar migrations, rate limiting, storage S3 e testes de rotas." ] },
-      technologies: ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS", "Argon2", "JWT"],
+      summary: {
+        label: "Portal de saúde",
+        status: "MVP em desenvolvimento",
+        description:
+          "Portal de saúde com marcações, ficha de saúde, agregado familiar, KYC e pagamentos.",
+        role: "Full Stack Developer",
+      },
+      taxonomy: {
+        categories: ["health", "web", "business"],
+        platforms: ["web"],
+        year: "2026",
+      },
+      caseStudy: {
+        context:
+          "O portal pretende ligar utentes a hospitais, clínicas e farmácias com serviços digitais.",
+        problem:
+          "Marcação, dados de saúde, identidade e pagamentos precisam de isolamento e segurança fortes.",
+        approach:
+          "MVP com autenticação segura, KYC, marcações e integração de pagamento preparada.",
+        architecture: ["Next.js 16", "React 19", "Prisma", "PostgreSQL"],
+        implementation: [
+          "JWT revogável",
+          "Argon2id",
+          "Validação zod",
+          "Webhooks HMAC",
+        ],
+        decisions: [
+          "Isolamento por utente",
+          "Cookies httpOnly",
+          "Storage externo como requisito de produção",
+        ],
+        tradeoffs:
+          "A segurança da aplicação foi priorizada, enquanto migrations, rate limiting e storage produtivo permanecem como gate.",
+        outcomes: [
+          "MVP funcional com base de segurança e 37 rotas verificadas.",
+        ],
+        lessons: [
+          "Dados de saúde exigem separar a qualidade da aplicação das garantias da infraestrutura.",
+        ],
+        nextSteps: [
+          "Fechar migrations, rate limiting, storage S3 e testes de rotas.",
+        ],
+      },
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Prisma",
+        "PostgreSQL",
+        "Tailwind CSS",
+        "Argon2",
+        "JWT",
+      ],
     }),
     createProject({
       slug: "padel4all",
@@ -665,18 +1219,55 @@ export const projects = {
       shortTitle: "PADEL4ALL",
       featured: false,
       visibility: "private",
-      summary: { label: "Site institucional", status: "Em desenvolvimento", description: "Site institucional para uma empresa de construção e operação de campos de padel em Angola.", role: "Full Stack Developer" },
-      taxonomy: { categories: ["institutional", "web"], platforms: ["web"], year: "2026" },
-      caseStudy: { context: "A empresa precisava apresentar serviços, projectos, parceiros e clube oficial.", problem: "O conteúdo comercial precisava de uma presença institucional consistente e gerível.", approach: "Site institucional com áreas públicas, autenticação Supabase e base para CMS.", architecture: ["Vite", "React", "Tailwind CSS", "Supabase"], implementation: ["Páginas públicas", "Admin de conteúdo", "CI/CD"], decisions: ["Design system consistente", "Conteúdo editável por fonte central"], tradeoffs: "A publicação de imagens reais e formulário funcional ficou dependente de conteúdos e integrações externas.", outcomes: ["Site institucional estruturado com autenticação e pipeline preparados."], lessons: ["A prova visual dos projectos é tão importante quanto a descrição dos serviços."], nextSteps: ["Adicionar imagens reais, formulário funcional e domínio." ] },
+      summary: {
+        label: "Site institucional",
+        status: "Em desenvolvimento",
+        description:
+          "Site institucional para uma empresa de construção e operação de campos de padel em Angola.",
+        role: "Full Stack Developer",
+      },
+      taxonomy: {
+        categories: ["institutional", "web"],
+        platforms: ["web"],
+        year: "2026",
+      },
+      caseStudy: {
+        context:
+          "A empresa precisava apresentar serviços, projectos, parceiros e clube oficial.",
+        problem:
+          "O conteúdo comercial precisava de uma presença institucional consistente e gerível.",
+        approach:
+          "Site institucional com áreas públicas, autenticação Supabase e base para CMS.",
+        architecture: ["Vite", "React", "Tailwind CSS", "Supabase"],
+        implementation: ["Páginas públicas", "Admin de conteúdo", "CI/CD"],
+        decisions: [
+          "Design system consistente",
+          "Conteúdo editável por fonte central",
+        ],
+        tradeoffs:
+          "A publicação de imagens reais e formulário funcional ficou dependente de conteúdos e integrações externas.",
+        outcomes: [
+          "Site institucional estruturado com autenticação e pipeline preparados.",
+        ],
+        lessons: [
+          "A prova visual dos projectos é tão importante quanto a descrição dos serviços.",
+        ],
+        nextSteps: ["Adicionar imagens reais, formulário funcional e domínio."],
+      },
       technologies: ["React", "Vite", "Tailwind CSS", "Supabase", "TypeScript"],
-      media: { cover: projectScreenshots.padel4all, gallery: [projectScreenshots.padel4all] },
+      media: {
+        cover: projectScreenshots.padel4all,
+        gallery: [projectScreenshots.padel4all],
+      },
     }),
   ],
   featured: ["jcash", "ocuioso", "mesafa-shop", "jakeil-transfer"],
   bySlug: {} as Record<string, unknown>,
 };
 
-projects.bySlug = Object.fromEntries(projects.items.map((project) => [project.slug, project]));
+projects.bySlug = Object.fromEntries(
+  projects.items.map((project) => [project.slug, project]),
+);
 
 // --- GALERIA GERAL ---
 export const gallery = {
