@@ -14,7 +14,9 @@ export function GradientWaves({ className = "" }: GradientWavesProps) {
     const context = canvas.getContext("2d");
     if (!context) return;
 
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     let animationFrame = 0;
     let frame = 0;
 
@@ -32,8 +34,18 @@ export function GradientWaves({ className = "" }: GradientWavesProps) {
 
       context.clearRect(0, 0, width, height);
       const waves = [
-        { color: "rgba(14, 116, 144, 0.22)", offset: height * 0.68, amplitude: height * 0.1, speed: 0.6 },
-        { color: "rgba(245, 158, 11, 0.12)", offset: height * 0.78, amplitude: height * 0.07, speed: 0.42 },
+        {
+          color: "rgba(14, 116, 144, 0.42)",
+          offset: height * 0.68,
+          amplitude: height * 0.1,
+          speed: 1.6,
+        },
+        {
+          color: "rgba(245, 158, 21, 0.42)",
+          offset: height * 0.78,
+          amplitude: height * 0.07,
+          speed: 1.42,
+        },
       ];
 
       waves.forEach(({ color, offset, amplitude, speed }) => {
@@ -43,7 +55,12 @@ export function GradientWaves({ className = "" }: GradientWavesProps) {
 
         for (let x = 0; x <= width; x += 12) {
           const progress = x / width;
-          const y = offset + Math.sin(progress * Math.PI * 2.4 + time * speed) * amplitude + Math.sin(progress * Math.PI * 5 - time * speed * 0.7) * amplitude * 0.32;
+          const y =
+            offset +
+            Math.sin(progress * Math.PI * 2.4 + time * speed) * amplitude +
+            Math.sin(progress * Math.PI * 5 - time * speed * 0.7) *
+              amplitude *
+              0.32;
           context.lineTo(x, y);
         }
 

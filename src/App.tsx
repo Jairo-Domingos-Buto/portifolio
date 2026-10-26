@@ -16,10 +16,10 @@ function HomePage() {
     <main>
         <Hero />
         <WhoINeedToSolve />
+        <About />
         <Projects compact />
         <Process />
         <Skills />
-        <About />
         <Contact />
     </main>
   );
